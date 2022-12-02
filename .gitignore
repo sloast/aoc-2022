@@ -1,0 +1,8 @@
+/.idea
+/.vscode
+/day1.smt2
+/day2.spl
+/day2_spl.py
+/venv
+/yices-2.6.4
+/__pycache__
