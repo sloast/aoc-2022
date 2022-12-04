@@ -18,3 +18,7 @@ for i in f:
         count+= 1
 
 print(count)
+
+
+l=list(list(('0'*(i<10)) + str(i) for i in j) for j in map(lambda l:map(int,'-'.join(l.split(',')).split('-')),open('4')))
+print(' '.join(map(lambda x:x[0]+'-'+x[1]+','+x[2]+'-'+x[3],l)))
