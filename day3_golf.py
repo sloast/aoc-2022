@@ -8,3 +8,4 @@ print(sum(ord(s)-(96,38)[s<'a']for s in((a&b&c-set('\n')).pop()for a,b,c in zip(
 
 # @geo#5319's solution
 j="".join;print(sum(ord(s)-58*(s>'Z')-24 for s in j(j(a&b&c)for a,b,c in zip(*(map(set,open("3")),)*3))))
+
