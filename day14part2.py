@@ -1,0 +1,51 @@
+g = [['.' for _ in range(1000)] for _ in range(200)]
+lowest = 0
+def prt():
+    for r in zip(*(str(i) if i % 5 == 0 else '   ' for i in range(400,600))):
+        print('    '+''.join(r))
+    for i,l in enumerate(g[:lowest+1]):
+        i = str(i)
+        print(' '*(3-len(i)) + i , ''.join(l[400:600]))
+
+def sgt(x,y,a=None):
+    if a is None:
+        return g[y][x]
+    g[y][x] = a
+
+for l in map(lambda l:map(lambda x:map(int,x.strip().split(',')),l.split('->')), open('14')):
+    ta=tb=-1
+    for a,b in l:
+        if ta!=-1:
+            if ta==a:
+                for i in range(min(tb,b),max(tb,tb:=b)+1):
+                    sgt(a,i,'#')
+                    lowest=max(lowest,i)
+            else:
+                for i in range(min(ta,a),max(ta,ta:=a)+1):
+                    sgt(i,b,'#')
+                lowest=max(lowest,b)
+        else:
+            ta,tb=a,b
+lowest+=2
+g[lowest]=['#'for _ in range(1000)]
+i=0
+while True:
+    x,y=500,0
+    while y<lowest:
+        if sgt(x,y+1)=='.':
+            y+=1
+        elif sgt(x-1,y+1)=='.':
+            x-=1
+            y+=1
+        elif sgt(x+1,y+1)=='.':
+            x+=1
+            y+=1
+        else:
+            break
+    i+=1
+    if y==0:
+        break
+    sgt(x,y,'o')
+sgt(500,0,'+')
+prt()
+print("Part 2:",i)
