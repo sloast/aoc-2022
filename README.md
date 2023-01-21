@@ -2,4 +2,4 @@
  
 this is one of the repositories of all time
 
-it is also quite cursed
+ignore the commit date, i did actually do each challenge on the day it released :)
